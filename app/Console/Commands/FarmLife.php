@@ -39,7 +39,7 @@ class FarmLife extends Command
         $farm->showAnimalsCount();
 
         // - 7 раз (неделю) произвести сбор продукции (подоить коров и собрать яйца у кур).
-        $this->weeklyCollectProducts($farm);
+        $farm->multipleCollect(7);
 
         // - Вывести на экран общее кол-во собранной за неделю продукции каждого типа.
         $farm->printCollectedProductsAmount();
@@ -53,17 +53,10 @@ class FarmLife extends Command
         $farm->showAnimalsCount();
 
         // - Снова 7 раз (неделю) производим сбор продукции и выводим результат на экран.
-        $this->weeklyCollectProducts($farm);
+        $farm->multipleCollect(7);
 
         // и распечатаем результаты еще раз
         $farm->printCollectedProductsAmount();
-    }
-
-    private function weeklyCollectProducts($farm)
-    {
-        for($i=0; $i<7; $i++) {
-            $farm->collectAllProducts();
-        }
     }
 
     private function goToTheMarket($farm): void

@@ -82,4 +82,14 @@ class Farm
         }
         Printer::printArray($counts, 'Всего животных:');
     }
+
+    /**
+     * Собрать все продукты несколько раз
+     */
+    public function multipleCollect(int $times): void
+    {
+        for($i = 0; $i < $times; $i++) {
+            $this->collectAllProducts();
+        }
+    }
 }
