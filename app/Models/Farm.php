@@ -92,4 +92,17 @@ class Farm
             $this->collectAllProducts();
         }
     }
+
+    /**
+     * Поход на рынок
+     * @return void
+     */
+    public function goToTheMarket(): void
+    {
+        $hens = Hen::factory(5)->make();
+        $cows = Cow::factory(1)->make();
+        // приводим их на нашу ферму и всем присваиваем уникальный номер (регистрируем на ферме)
+        $cows->each(fn(Cow $cow) => $this->registerAnimal($cow));
+        $hens->each(fn(Hen $hen) => $this->registerAnimal($hen));
+    }
 }

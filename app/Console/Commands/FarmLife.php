@@ -47,7 +47,7 @@ class FarmLife extends Command
         $farm->clearProductsRecords();
 
         // - Добавить на ферму ещё 5 кур и 1 корову (съездили на рынок, купили животных).
-        $this->goToTheMarket($farm);
+        $farm->goToTheMarket();
 
         // - Снова вывести информацию о количестве каждого типа животных на ферме.
         $farm->showAnimalsCount();
@@ -57,15 +57,6 @@ class FarmLife extends Command
 
         // и распечатаем результаты еще раз
         $farm->printCollectedProductsAmount();
-    }
-
-    private function goToTheMarket($farm): void
-    {
-        $hens = Hen::factory(5)->make();
-        $cows = Cow::factory(1)->make();
-        // приводим их на нашу ферму и всем присваиваем уникальный номер (регистрируем на ферме)
-        $cows->each(fn(Cow $cow) => $farm->registerAnimal($cow));
-        $hens->each(fn(Hen $hen) => $farm->registerAnimal($hen));
     }
 
 }
