@@ -1,0 +1,15 @@
+version: '1.0'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my-php-docker
+    container_name: my-php-docker
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+      - ./.env:/var/www/.env
+    environment:
+      - APP_ENV=local
