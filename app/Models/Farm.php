@@ -43,11 +43,22 @@ class Farm
      * Собираем все виды продуктов у наших животных
      * @return void
      */
-    public function collectAllProducts(): void
+    private function collectAllProducts(): void
     {
         foreach ($this->animals as $id => $animal) {
             $food = $animal->produceFood();
             $this->addProduct($food['product_type'], $food['product_value']);
+        }
+    }
+    /**
+     * Запуск сбора продуктов сразу несколько раз
+     * @param int $times
+     * @return void
+     */
+    public function multipleCollect(int $times): void
+    {
+        for($i = 0; $i < $times; $i++) {
+            $this->collectAllProducts();
         }
     }
 
@@ -81,18 +92,6 @@ class Farm
             $counts[$name]++;
         }
         Printer::printArray($counts, 'Всего животных:');
-    }
-
-    /**
-     * Собрать все продукты несколько раз
-     * @param int $times
-     * @return void
-     */
-    public function multipleCollect(int $times): void
-    {
-        for($i = 0; $i < $times; $i++) {
-            $this->collectAllProducts();
-        }
     }
 
     /**
