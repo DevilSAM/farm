@@ -85,6 +85,8 @@ class Farm
 
     /**
      * Собрать все продукты несколько раз
+     * @param int $times
+     * @return void
      */
     public function multipleCollect(int $times): void
     {
