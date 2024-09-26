@@ -45,9 +45,9 @@ class Farm
      */
     private function collectAllProducts(): void
     {
-        foreach ($this->animals as $id => $animal) {
-            $food = $animal->produceFood();
-            $this->addProduct($food['product_type'], $food['product_value']);
+        foreach ($this->animals as $animal) {
+            $product = $animal->produceProduct();
+            $this->addProduct($product);
         }
     }
     /**
@@ -64,16 +64,15 @@ class Farm
 
     /**
      * Сохраняем информацию о собранных продуктах на ферме в текущем периоде
-     * @param string $product_type
-     * @param int $product_value
+     * @param Product $product
      * @return void
      */
-    private function addProduct(string $product_type, int $product_value): void
+    private function addProduct(Product $product): void
     {
-        if (isset($this->collected_products[$product_type])) {
-            $this->collected_products[$product_type] += $product_value;
+        if (isset($this->collected_products[$product->getName()])) {
+            $this->collected_products[$product->getName()] += $product->getCount();
         } else {
-            $this->collected_products[$product_type] = $product_value;
+            $this->collected_products[$product->getName()] = $product->getCount();
         }
     }
 

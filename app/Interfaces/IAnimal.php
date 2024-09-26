@@ -2,11 +2,12 @@
 
 namespace App\Interfaces;
 
+use App\Models\Product;
 
 interface IAnimal
 {
     /**
-     * @return array{product_type: string, product_value: int}
+     * @return Product
      */
-    public function produceFood(): array;
+    public function produceProduct(): Product;
 }

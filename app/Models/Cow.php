@@ -18,12 +18,9 @@ class Cow extends Model implements IAnimal, ITranslator
     const MAX_MILK_VALUE = 12;
 
 
-    public function produceFood(): array
+    public function produceProduct(): Product
     {
-        return [
-            'product_type' => 'Молоко',
-            'product_value' => rand(self::MIN_MILK_VALUE, self::MAX_MILK_VALUE)
-        ];
+        return new Product('Молоко', rand(self::MIN_MILK_VALUE, self::MAX_MILK_VALUE));
     }
 
     public function getRusName(): string
