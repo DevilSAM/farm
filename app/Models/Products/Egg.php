@@ -3,7 +3,7 @@
 namespace App\Models\Products;
 
 /**
- * Курица
+ * Яйцо
  */
 class Egg extends Product
 {

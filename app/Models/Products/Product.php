@@ -3,7 +3,7 @@
 namespace App\Models\Products;
 
 /**
- * Курица
+ * Абстрактный продукт
  */
 abstract class Product
 {

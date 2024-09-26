@@ -3,7 +3,7 @@
 namespace App\Models\Products;
 
 /**
- * Курица
+ * Молоко
  */
 class Milk extends Product
 {
