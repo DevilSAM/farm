@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Interfaces\IAnimal;
+use App\Models\Products\Product;
 
 class Farm
 {

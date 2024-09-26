@@ -1,19 +1,14 @@
 <?php
 
-namespace App\Models;
-
-use App\Interfaces\IAnimal;
-use App\Interfaces\ITranslator;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models\Products;
 
 /**
  * Курица
  */
-class Product
+abstract class Product
 {
-    private string $name;
-    private int $count;
+    protected string $name;
+    protected int $count;
 
     public function __construct(string $name, int $count)
     {
