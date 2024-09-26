@@ -22,6 +22,7 @@ class Hen extends Model implements IAnimal, ITranslator
     {
         return new Egg(rand(self::MIN_EGG_VALUE, self::MAX_EGG_VALUE));
     }
+
     public function getRusName(): string
     {
         return 'Курица';
